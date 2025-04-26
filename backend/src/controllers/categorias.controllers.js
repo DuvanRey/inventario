@@ -1,4 +1,6 @@
 import getConnection from "./../db/database.js"
+
+
 const getCategorias = async (req, res)=>{
     try {
         const connection = await getConnection();
@@ -69,6 +71,37 @@ const updateCategorias = async(req, res) =>{
         
     }
 }
+/* Parcial 
+
+const getEmpleados = async (req, res)=>{
+    try {
+        const connection = await getConnection();
+        const result = await connection.query("SELECT EmpleadoID, Apellido, Nombre, Titulo, TituloCortesia, FechaNacimiento, FechaContratacion, Direccion, Ciudad, Regiones, CodigoPostal, Pais, Telefono, Extension, Foto, Notas, Jefe, RutaFoto FROM empleados") 
+        res.json(result);
+
+         } catch (error) {
+            console.error("Error 500");      
+    }
+    
+}
+
+const updateProductos = async(req, res) =>{
+    try {
+        const {id} = req.params
+        const {ProductoNombre, ProveedorID, CategoriaID, CantidadPorUnidad} = req.body;
+        const products = {ProductoNombre, ProveedorID, CategoriaID, CantidadPorUnidad}
+        const connection = await getConnection();
+        const result = await connection.query("UPDATE productos SET ? WHERE ProductoID = ?",[products, id]) 
+        res.json(result)
+        
+    } catch (error) {
+        console.error("Error 500");  
+        
+    }
+}
+ 
+*/
+
 export const methodHTTP = {
     getCategorias,
     postCategorias,
