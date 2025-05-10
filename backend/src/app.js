@@ -11,6 +11,9 @@ app.use(express.json({ limit: '20mb' }));
 app.set("port", 5000)  /*setear el puerto*/
 
 app.use(cors());
+app.get('/',(req,res)=>{
+    res.send('REST API EN RENDER WITHOUT DATABASE ENDPOINTS')
+  })
 
 app.use("/api/categorias", categoriaRoutes)
 app.use("/api/empleados", empleadosRoutes)
