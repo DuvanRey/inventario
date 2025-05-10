@@ -6,7 +6,7 @@ const postCliente = async (req, res)=>{
         const cliente = {ClienteID, Compania, Contacto, Titulo, Direccion, Ciudad, Regiones, CodigoPostal, Pais, Telefono, Fax}
 
         const connection = await getConnection();
-        const result = await connection.query("INSERT INTO clientes SET ?", cliente) 
+        const result = await connection.query("INSERT INTO clientes SET ?", req.body) 
         res.json(result)
     } catch (error) {
         console.error("Error 500");
